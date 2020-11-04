@@ -28,6 +28,13 @@ class Invoice:
         total_pure_price = self.totalImpurePrice(products) - self.totalDiscount(products)
         return total_pure_price
 
+    def highestPrice(self, products):
+        highest_price = 0
+        for k, v in products.items():
+            if float(v["unit_price"]) > highest_price:
+                highest_price = float(v["unit_price"])
+        return highest_price
+
     def inputAnswer(self, input_value):
         while True:
             userInput = input(input_value)

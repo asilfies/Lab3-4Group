@@ -17,11 +17,20 @@ def test_CanCalculateTotalImpurePrice(products):
     invoice.totalImpurePrice(products)
     assert invoice.totalImpurePrice(products) == 75
 
-def test_CanCalculateTotalImpurePrice(invoice, products):
+def test_CanCalculateTotalDiscountPrice(invoice, products):
     invoice.totalDiscount(products)
     assert invoice.totalDiscount(products) == 5.62
 
 def test_CanCalculateTotalPurePrice(invoice, products):
     invoice.totalPurePrice(products)
     assert invoice.totalPurePrice(products) == 69.38
+
+def test_CanCalculatePositivePrice(invoice, products):
+    invoice.totalPurePrice(products)
+    assert invoice.totalPurePrice(products) >= 0
+
+def test_CanCalculateHighestPrice(invoice, products):
+    invoice.highestPrice(products)
+    assert invoice.highestPrice(products) == 7.5
+
 
